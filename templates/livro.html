@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+    <form method="'POST" action="{{url_for('resenha')}}">
+        <input type="text" placeholder="o que achou?">
+        <select>
+            <option value="">Escolha uma opção</option>
+            <option value="nota">1</option>
+            <option value="nota">2</option>
+            <option value="nota">3</option>
+            <option value="nota">4</option>
+            <option value="nota">5</option>
+        </select>
+    </form>
+    <button type="submit">enviar</button>
+{% endblock %}

@@ -1,0 +1,3 @@
+1 - está na divisão das páginas app.py e models.py, além da pasta separando os templates dos demais arquivos.
+2 - Para não precisar lembrar o nome exato da url, e sim apenas da função que deve ser chamada, além de evitar links quebrados, deixando o código mais organizado e seguro.
+3 - representa a interação do usuário com a aplicação, apesar de ser temporária garante mais segurança. Precisa gravar para garantir que o usuário realmente possa fazer a resenha.

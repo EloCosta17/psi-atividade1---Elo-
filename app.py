@@ -1,31 +1,13 @@
-from flask import Flask, render_template,
-import models
+from flask import Flask
+from blueprints.auth import auth_bp
+from blueprints.catalog import catalog_bp
+from blueprints.reviews import reviews_bp
 
 app = Flask(__name__)
-app.secret_key = 'chavesecreta'
-usuario = models.usuarios()
+app.secret_key = "chave-secreta"
+app.register_blueprint(auth_bp, url_prefix= 'auth')
+app.register_blueprint(catalog_bp, url_prefix = 'catalog')
+app.register_blueprint(reviews_bp)
 
-@app.route('/')
-def inicio():
-    if "usuario" in session:
-        return f'{session["usuario"] logado}'
-    return render_template('index.html')
-
-@app.route('/login' methods=['POST','GET'])
-def login():
-    if request.method == 'POST':
-        session['usuario'] = usuario
-        return redirect(url_for('listagem'))
-
-@app.route('/logout', methods=['POST'])
-def logout():
-    logout_user()
-    return redirect(url_for('login'))
-
-@app.route('/listagem')
-def listagem():
-
-
-
-if __name__ == 'main':
-    app.run(debug=True)
+if __name__ == "__main__":
+app.run(debug=True)
